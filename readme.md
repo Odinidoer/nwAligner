@@ -1,1 +1,1 @@
-Pair-wise sequence alignment with needleman-wunsch algorithm.
+Demo of Needleman-Wunsch alignment algorithm.
