@@ -104,7 +104,11 @@ def pretty_print_align(seq1, seq2, path_code):
     return
 
 def main():
-    seq1, seq2 = map(str.upper, sys.argv[1:3])
+    try:
+        seq1, seq2 = map(str.upper, sys.argv[1:3])
+    except:
+        seq1, seq2 = 'TCATC','TCATGGC'
+
     print('1: %s' % seq1)
     print('2: %s' % seq2)
 
@@ -114,7 +118,7 @@ def main():
 
     path_code = traceback(seq1, seq2, trace_mat)
     pretty_print_align(seq1, seq2, path_code)
-    print('   '+path_code)
+    #print('   '+path_code)
 
 if __name__ == '__main__':
     main()
