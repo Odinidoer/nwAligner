@@ -103,18 +103,24 @@ def pretty_print_align(seq1, seq2, path_code):
     print('Alignment:\n\n   ' + align1 + '\n   ' + middle + '\n   ' + align2 + '\n')
     return
 
+def usage():
+    print('Usage:\n\tpython nwAligner.py seq1 seq2\n')
+    return
+
 def main():
     try:
         seq1, seq2 = map(str.upper, sys.argv[1:3])
     except:
         seq1, seq2 = 'TCATC','TCATGGC'
+        usage()
+        print('--------Demo:-------\n')
 
     print('1: %s' % seq1)
     print('2: %s' % seq2)
 
     score_mat, trace_mat = make_score_matrix(seq1, seq2)
-    print_m(seq1, seq2, score_mat)
-    print_m(seq1, seq2, trace_mat)
+    #print_m(seq1, seq2, score_mat)
+    #print_m(seq1, seq2, trace_mat)
 
     path_code = traceback(seq1, seq2, trace_mat)
     pretty_print_align(seq1, seq2, path_code)
